@@ -1,25 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { CssBaseline } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Header from 'layouts/Header';
+import { theme } from 'constants/theme.constant';
+import Introduction from 'layouts/Introduction';
+import WhatsappFab from 'components/WhatsappFab';
+import Footer from 'layouts/Footer';
+import WhyChooseUs from 'layouts/WhyChooseUs';
+import { Container } from '@mui/system';
+import BackToTop from 'components/BackToTop';
+import AboutDDeck from 'layouts/AboutDDeck';
+import ProductGallery from 'layouts/ProductGallery';
+import DDeckProduct from 'layouts/DDeckProduct';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={createTheme(theme)}>
+      <CssBaseline />
+      <WhatsappFab />
+
+      <Header />
+
+      <Introduction />
+
+      <Container maxWidth="lg">
+        <DDeckProduct />
+        <ProductGallery />
+        <AboutDDeck />
+        <WhyChooseUs />
+      </Container>
+
+      <BackToTop />
+
+      <Footer />
+    </ThemeProvider>
   );
 }
 
